@@ -11,7 +11,7 @@
             "cwd":"${fileDirname}",
             "program": "${file}",
             "console": "externalTerminal",
-            "env": {"PYTHONPATH": "${workspaceRoot}"},
+            "env": {"PYTHONPATH": "${workspaceRoot}"}
         },
         {
             "name": "Python: Current Dir (internal)",
@@ -20,14 +20,14 @@
             "cwd":"${fileDirname}",
             "program": "${file}",
             "console": "integratedTerminal",
-            "env": {"PYTHONPATH": "${workspaceRoot}"},
+            "env": {"PYTHONPATH": "${workspaceRoot}"}
          },
         {
              "name": "Python: Current File (Integrated Terminal)",
              "type": "python",
              "request": "launch",
              "program": "${file}",
-             "console": "integratedTerminal",
+             "console": "integratedTerminal"
         }
     ]
  }

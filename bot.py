@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import json
-
+import random
 with open('setting.json','r',encoding='utf8') as jf:
     jsdata=json.load(jf)#把一長串的東西丟到json檔案裡
 
@@ -27,9 +27,10 @@ async def on_member_remove(member):
 
 #從我的電腦檔案中傳送圖片訊息
 @bot.command()
-async def image(ctx):#ctx: 類似與機器人的上下文對話 當使用者輸入'['時 機器如就知道這是一個指令(參見第10行)
-    pic=discord.File(jsdata['pic'])
-    await ctx.send(pic)
+async def 圖片(ctx):#ctx: 類似與機器人的上下文對話 當使用者輸入'['時 機器如就知道這是一個指令(參見第10行)
+    ran_pic=random.choice(jsdata['pi'])
+    pic=discord.File(ran_pic)
+    await ctx.send(file=pic)
 
 bot.run(jsdata['token'])#執行機器人 token 是此機器人的執行金鑰(完整的放在json裡)
 
