@@ -1,11 +1,12 @@
 {
-    "token":"OTQxNTY5MjQ5OTM0MjA0OTg4.YgX2sg.8AzibCFgwUAPetIhsB8-1BnL9u8",
-    "welcome_channel":"942256218179764254",
-    "leave_channel":"942257488105963591",
-    "pi":["D:\\我的資料夾\\discord py\\Bing-Chilling_bot\\image\\1.png", "D:\\我的資料夾\\discord py\\Bing-Chilling_bot\\image\\2.png"]
-
-
-
-
-
+    "token": "OTQxNTY5MjQ5OTM0MjA0OTg4.YgX2sg.vLdO424HwK1bTpfC74t6GGwIzG8",
+    "welcome_channel": "942256218179764254",
+    "Admit_channel": "971220164634890250",
+    "leave_channel": "942257488105963591",
+    "pi": [
+        "D:\\\u6211\u7684\u8cc7\u6599\u593e\\discord py\\Bing-Chilling_bot\\image\\1.png",
+        "D:\\\u6211\u7684\u8cc7\u6599\u593e\\discord py\\Bing-Chilling_bot\\image\\2.png"
+    ],
+    "test_channel": "961077416900583425",
+    "time": "0946"
 }
