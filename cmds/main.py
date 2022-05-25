@@ -1,30 +1,34 @@
 import discord
 from discord.ext import commands
 
-from core.classes import Cog_Extension
+from core.classes import Cog_Extension#繼承 Cog_Extension 中的類別
 import random
 import json
 
 with open('setting.json','r',encoding='utf8') as jf:
     jsdata=json.load(jf)
-class Main(Cog_Extension):
+class Main(Cog_Extension): #繼承Cog_Extension的類別之外還繼承了定義的屬性(bot)
     # def __init__(self,bot):
     #     self.bot=bot 
     #以後在別的地方利用cog放入指令還需定義bot太麻煩了
     #所以直接開新的資料夾core裡面的classes來放定義的指令
     
-    @commands.command() #@bot.command()放入cog後改名
+    @commands.command() #@bot.command()放入cog後要改名為@commands.command() 不然會出錯
     async def ping(self,ctx):
         await ctx.send(f'{round(self.bot.latency*1000)} [ms]' )
 
 
     @commands.command()#叫機器人在聊天頻道裡發送嵌入訊息 網路上有生成器可以使用
     async def aqours(self,ctx):
-        embed=discord.Embed(title="All songs(Google drive)", url="https://reurl.cc/AK312p", description="some resource about lovelive" , color=0x0c32ed)
+        embed=discord.Embed(title="All songs(Google drive)", url="https://reurl.cc/AK312p", description="some resource about aqours", color=0x0055ff)
         embed.set_author(name="五月五日")
-        embed.add_field(name="aqours(songs.LLwiki)", value="https://reurl.cc/Y93l44", inline=False)
+        embed.set_thumbnail(url="https://preview.redd.it/5z1rz73sz9o21.png?width=3845&format=png&auto=webp&s=6bc7f3cc9eecddcfe20a84cfc70ecb4b17b1558d")
+        embed.add_field(name="aqours(songs.LLwiki)", value="https://reurl.cc/Y93l44", inline=True)
         embed.add_field(name="aqours(songs.zh.moegirl)", value="https://reurl.cc/yQomnl", inline=True)
-        #embed.set_thumbnail(url=
+        embed.add_field(name="official", value="https://reurl.cc/8oXXRd", inline=True)
+        embed.add_field(name="stop(oficial)", value="https://reurl.cc/RreeoG", inline=True)
+        embed.add_field(name="Recommended shop", value="Gamers Shop, Animate,Amazone.jp", inline=True)
+        embed.set_footer(text=":)")
         await ctx.send(embed=embed)
 
 

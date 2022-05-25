@@ -29,7 +29,7 @@ class Event(Cog_Extension):
         
         if msg.content.endswith('太遜了'):#當輸入的訊息結尾包含「太遜了」的話
             await msg.channel.send('那個彬彬就是遜啦')#在使用者輸入的頻道裡回覆「那個彬彬就是遜啦」
-            ran_pic=random.choice(jsdata['pi'])#隨機選擇一張圖片
+            ran_pic=random.choice(jsdata['bing'])#隨機選擇一張圖片
             pic=discord.File(ran_pic)
             await msg.channel.send(file=pic)
 def setup(bot):
