@@ -13,7 +13,7 @@ class Music(Cog_Extension):
     @commands.command()
     async def join(self,ctx):
         if ctx.author.voice is None:
-            await ctx.send("you are not in a voice channel")
+            await ctx.send("使用者不在頻道")
 
         channel = ctx.author.voice.channel
 
@@ -43,6 +43,8 @@ class Music(Cog_Extension):
             url2 = info["formats"][0]["url"]
             source = await discord.FFmpegOpusAudio.from_probe(url2,**FFMPEG_OPTIONS)
             #vc.play(discord.FFmpegPCMAudio(executable="D:\\ffmpeg\\bin", source=url2, **FFMPEG_OPTIONS))
+            #vc.play(discord.FFmpegPCMAudio(executable="D:\\ffmpeg\\bin", source=(await discord.FFmpegOpusAudio.from_probe(url2,**FFMPEG_OPTIONS))
+        
             vc.play(source)
 
     @commands.command()
@@ -61,7 +63,7 @@ class Music(Cog_Extension):
             await vc.resume()
             await ctx.send("resume")
         else:
-            await ctx.send("no audio paused")
+            await ctx.send("no audio paused.")
 
     @commands.command()
     async def stop(self,ctx):

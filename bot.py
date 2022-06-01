@@ -39,20 +39,20 @@ async def on_ready():
 #     pic=discord.File(ran_pic)
 #     await ctx.send(file=pic)
 
-@bot.command()
-async def load(ctx, extension):
-    bot.load_extension[f'cmds.{extension}']
-    await ctx.send[f'Loaded {extension} done.']
+# @bot.command()
+# async def load(ctx, extension):
+#     bot.load_extension[f'cmds.{extension}']
+#     await ctx.send[f'Loaded {extension} done.']
 
-@bot.command()
-async def unload(ctx, extension):
-    bot.unload_extension[f'cmds.{extension}']
-    await ctx.send[f'UnLoaded {extension} done.']
+# @bot.command()
+# async def unload(ctx, extension):
+#     bot.unload_extension[f'cmds.{extension}']
+#     await ctx.send[f'UnLoaded {extension} done.']
 
-@bot.command()
-async def reload(ctx, extension):
-    bot.reload_extension[f'cmds.{extension}']
-    await ctx.send[f'ReLoaded {extension} done.']
+# @bot.command()
+# async def reload(ctx, extension):
+#     bot.reload_extension[f'cmds.{extension}']
+#     await ctx.send[f'ReLoaded {extension} done.']
 
 
 
