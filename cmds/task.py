@@ -18,13 +18,14 @@ class Task(Cog_Extension):
 #原本Cog_Extension的屬性就消失了，故需要用super() (父類別初始化屬性)
         async def time_task():
             await self.bot.wait_until_ready()
-            self.channel=self.bot.get_channel(942263870381240350)
+            self.channel=self.bot.get_channel(961077416900583425)
             while not self.bot.is_closed():
                 now_time=datetime.datetime.now().strftime('%H%M')
                 with open('setting.json','r',encoding='utf8') as jf:
                     jsdata=json.load(jf)
                 if now_time == jsdata['time'] and self.counter==0:
-                    await self.channel.send('要會考了!大家加油')
+                    with open('setting.json','r',encoding='utf8') as jf:
+                        await self.channel.send(jsdata['wantmsg'])
                     self.counter=1
                     await asyncio.sleep(1)
                 
@@ -45,6 +46,15 @@ class Task(Cog_Extension):
         with open('setting.json','r',encoding='utf8') as jf:
             jsdata=json.load(jf)
         jsdata['time']=time
+        with open('setting.json','w',encoding='utf8') as jf:
+            json.dump(jsdata,jf,indent=4)
+    
+    @commands.command()#讓使用者輸入指定時間時要送的訊息
+    async def send_msg(self,ctx,msg):
+        self.counter=0
+        with open('setting.json','r',encoding='utf8') as jf:
+            jsdata=json.load(jf)
+        jsdata['wantmsg']=msg
         with open('setting.json','w',encoding='utf8') as jf:
             json.dump(jsdata,jf,indent=4)
 

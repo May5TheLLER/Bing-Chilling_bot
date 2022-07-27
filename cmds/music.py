@@ -36,16 +36,21 @@ class Music(Cog_Extension):
         vc =  ctx.voice_client
         YDL_OPTIONS = {'format':"bestaudio"}
         FFMPEG_OPTIONS = {'before_options':"-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5",'options':"-vn"}
-
+        #其實以上兩行我看不懂原理，只知道很多開發者的寫法都一樣，我想是某種參數之類的。
     
         with youtube_dl.YoutubeDL(YDL_OPTIONS) as ydl:
             info =ydl.extract_info(url,download=False)
             url2 = info["formats"][0]["url"]
             source = await discord.FFmpegOpusAudio.from_probe(url2,**FFMPEG_OPTIONS)
+            vc.play(source)
             #vc.play(discord.FFmpegPCMAudio(executable="D:\\ffmpeg\\bin", source=url2, **FFMPEG_OPTIONS))
             #vc.play(discord.FFmpegPCMAudio(executable="D:\\ffmpeg\\bin", source=(await discord.FFmpegOpusAudio.from_probe(url2,**FFMPEG_OPTIONS))
-        
-            vc.play(source)
+            #做play (播放)功能時感覺有點超出了我的能力範圍(連看都看不懂)，不過我統整了多位開發者的程式寫法，在中發現一些相似之處。從44行到47行都是是我嘗試各種看似邏輯
+#           相同的寫法，最終有一種順利執行了(第44、45行)
+
+
+
+
 
     @commands.command()
     async def pause(self,ctx):

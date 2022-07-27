@@ -31,7 +31,7 @@ class Main(Cog_Extension): #繼承Cog_Extension的類別之外還繼承了定義
         embed.set_footer(text=":)")
         await ctx.send(embed=embed)
 
-
+#隨機組隊
     @commands.command()
     async def RandSquad(self,ctx):
         online=[]
@@ -53,7 +53,7 @@ class Main(Cog_Extension): #繼承Cog_Extension的類別之外還繼承了定義
 #新增貼圖後判斷是否為指定貼圖 是的話給予身分組
     @commands.Cog.listener()
     async def on_raw_reaction_add(self,data):
-        if data.message._id==971205283672113172:
+        if data.message_id==971205283672113172:
             if str(data.emoji)=='<:R6CustomGame:968671628437368862>':
                 guild=self.bot.get_guild(data.guild_id)
                 # rolesforemoji = discord.utils.get(guild.member.roles, name="R6自訂")
@@ -70,14 +70,6 @@ class Main(Cog_Extension): #繼承Cog_Extension的類別之外還繼承了定義
                 #await data.member.remove_roles(R6CustomGame)
                 #本以為改成remove就可以順利運作 但查詢後發現只能用在add上
                 await user.remove_roles(R6CustomGame)
-    @commands.Cog.listener()
-    async def on_message_delete(self,message):#其中的參數message只可以知道刪除的訊息以及
-#原作者，故需要從審核日誌之(AuditLog)中拿取刪除訊息的人
-        c=1#計數器，只讓機器人從審核日誌中抓取一個歲新的資料
-        async for auditlog in message.guild.audit_logs(action=discord.AuditLogAction.message_delete):
-            if c==1:
-                adchannel=self.bot.get_channel(int(jsdata['Admit_channel']))#利用json將誰移除了甚麼的訊息給送到指定頻道中，而不是原地發送
-                await adchannel.send(auditlog.user.name)
-                c+=1
+
 def setup(bot):
     bot.add_cog(Main(bot))
